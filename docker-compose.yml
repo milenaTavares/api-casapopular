@@ -1,0 +1,16 @@
+version: '3.1'
+
+services:
+  db:
+    image: mysql
+    container_name: mysql
+    volumes:
+      - dbbase:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 1mpqzih8
+      MYSQL_DATABASE: api-casapopular
+
+volumes:
+  dbbase:
