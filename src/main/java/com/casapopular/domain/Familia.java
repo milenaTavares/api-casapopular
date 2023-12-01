@@ -11,10 +11,14 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @Entity
 @Table(name = "Familia")
@@ -37,5 +41,16 @@ public class Familia {
 
     public Double obterRendaTotal() {
         return this.membros.stream().mapToDouble(Pessoa::getRenda).sum();
+    }
+
+    public void adicionarMembros(List<Pessoa> novosMembros) {
+        List<Pessoa> todosOsMembros = new ArrayList<>();
+        todosOsMembros.addAll(this.membros);
+        todosOsMembros.addAll(novosMembros);
+        this.membros = todosOsMembros;
+    }
+
+    public void excluirMembro(Integer membroId) {
+        this.membros = membros.stream().filter(membro -> !membro.getId().equals(membroId)).collect(Collectors.toList());
     }
 }

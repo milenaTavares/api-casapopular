@@ -4,6 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 class FamiliaTest {
@@ -53,5 +54,33 @@ class FamiliaTest {
         Double rendaTotal = familia.obterRendaTotal();
 
         Assertions.assertThat(rendaTotal).isEqualTo(rendaEsperada);
+    }
+
+    @Test
+    void deveAdicionarMembrosNaFamilia() {
+        Pessoa primeiroMembro = new Pessoa("Maria", 45, 2000.50);
+        Pessoa segundoMembro = new Pessoa("Joao", 47, 4250.00);
+        Pessoa novoMembro = new Pessoa("José", 19, 1500.00);
+        List<Pessoa> membrosDaFamilia = Arrays.asList(primeiroMembro, segundoMembro);
+        Familia familia = new Familia(membrosDaFamilia);
+
+        familia.adicionarMembros(Collections.singletonList(novoMembro));
+
+        Assertions.assertThat(familia.getMembros()).containsExactlyInAnyOrder(primeiroMembro, segundoMembro, novoMembro);
+    }
+
+    @Test
+    void deveExcluirMembroDaFamilia() {
+        Integer idParaExcluir = 1;
+        Pessoa primeiroMembro = new Pessoa("Maria", 45, 2000.50);
+        primeiroMembro.setId(idParaExcluir);
+        Pessoa segundoMembro = new Pessoa("Joao", 47, 4250.00);
+        segundoMembro.setId(2);
+        List<Pessoa> membrosDaFamilia = Arrays.asList(primeiroMembro, segundoMembro);
+        Familia familia = new Familia(membrosDaFamilia);
+
+        familia.excluirMembro(idParaExcluir);
+
+        Assertions.assertThat(familia.getMembros()).containsOnly(primeiroMembro);
     }
 }
