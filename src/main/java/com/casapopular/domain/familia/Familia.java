@@ -1,5 +1,6 @@
-package com.casapopular.domain;
+package com.casapopular.domain.familia;
 
+import com.casapopular.domain.familia.pessoa.Pessoa;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -39,6 +40,7 @@ public class Familia {
         return this.membros.stream().filter(Pessoa::ehMaiorDeIdade).toList().size();
     }
 
+    // menores de idade?
     public Double obterRendaTotal() {
         return this.membros.stream().mapToDouble(Pessoa::getRenda).sum();
     }

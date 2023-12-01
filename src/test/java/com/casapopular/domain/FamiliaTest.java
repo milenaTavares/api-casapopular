@@ -1,5 +1,7 @@
 package com.casapopular.domain;
 
+import com.casapopular.domain.familia.Familia;
+import com.casapopular.domain.familia.pessoa.Pessoa;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 

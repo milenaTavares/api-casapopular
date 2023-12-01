@@ -1,4 +1,4 @@
-package com.casapopular.domain;
+package com.casapopular.domain.familia.pessoa;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

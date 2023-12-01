@@ -1,7 +1,7 @@
 package com.casapopular.service.familia;
 
-import com.casapopular.domain.Familia;
-import com.casapopular.domain.Pessoa;
+import com.casapopular.domain.familia.Familia;
+import com.casapopular.domain.familia.pessoa.Pessoa;
 import com.casapopular.repository.FamiliaRepository;
 import com.casapopular.service.FamiliaDTO;
 import com.casapopular.service.PessoaDTO;
