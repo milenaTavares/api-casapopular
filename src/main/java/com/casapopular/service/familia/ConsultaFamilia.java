@@ -1,7 +1,7 @@
 package com.casapopular.service.familia;
 
-import com.casapopular.domain.familia.Familia;
-import com.casapopular.domain.familia.pessoa.Pessoa;
+import com.casapopular.dominio.familia.Familia;
+import com.casapopular.dominio.familia.pessoa.Pessoa;
 import com.casapopular.repository.FamiliaRepository;
 import com.casapopular.service.FamiliaDTO;
 import com.casapopular.service.PessoaDTO;
@@ -42,7 +42,7 @@ public class ConsultaFamilia {
         PessoaDTO dto = new PessoaDTO();
         dto.id = pessoa.getId();
         dto.nome = pessoa.getNome();
-        dto.idade = pessoa.getIdade();
+        dto.idade = pessoa.obterIdade();
         dto.renda = pessoa.getRenda();
         return dto;
     }

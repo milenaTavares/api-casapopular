@@ -1,4 +1,4 @@
-package com.casapopular.domain.selecao;
+package com.casapopular.dominio.selecao;
 
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;

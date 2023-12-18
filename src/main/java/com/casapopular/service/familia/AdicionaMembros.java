@@ -1,6 +1,6 @@
 package com.casapopular.service.familia;
 
-import com.casapopular.domain.familia.pessoa.Pessoa;
+import com.casapopular.dominio.familia.pessoa.Pessoa;
 import com.casapopular.repository.FamiliaRepository;
 import com.casapopular.repository.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
-package com.casapopular.domain.selecao.criterio;
+package com.casapopular.dominio.selecao.criterio;
 
-import com.casapopular.domain.familia.Familia;
+import com.casapopular.dominio.familia.Familia;
 
 public class NumeroDeDependentes implements CriterioDeSelecao {
 

@@ -1,4 +1,4 @@
-package com.casapopular.domain.selecao;
+package com.casapopular.dominio.selecao;
 
 import jakarta.persistence.Embeddable;
 import lombok.Getter;

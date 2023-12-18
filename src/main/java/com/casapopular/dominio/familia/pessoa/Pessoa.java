@@ -1,4 +1,4 @@
-package com.casapopular.domain.familia.pessoa;
+package com.casapopular.dominio.familia.pessoa;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,6 +11,9 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.time.LocalDate;
+import java.time.Period;
 
 @Getter
 @Setter
@@ -26,21 +29,26 @@ public class Pessoa {
     @NotBlank(message = "O nome é obrigatório.")
     private String nome;
 
-    @NotNull(message = "A idade é obrigatória.")
-    @Min(0)
-    private Integer idade;
+    @NotNull(message = "A A data de nascimento é obrigatória.")
+    private LocalDate dataDeNascimento;
 
     @NotNull(message = "A renda é obrigatória.")
     @Min(0)
     private Double renda;
 
-    public Pessoa(String nome, Integer idade, Double renda) {
+    public Pessoa(String nome, LocalDate dataDeNascimento, Double renda) {
         this.nome = nome;
-        this.idade = idade;
+        this.dataDeNascimento = dataDeNascimento;
         this.renda = renda;
     }
 
+    public int obterIdade() {
+        LocalDate dataAtual = LocalDate.now();
+        final Period periodo = Period.between(this.dataDeNascimento, dataAtual);
+        return periodo.getYears();
+    }
+
     public boolean ehMaiorDeIdade() {
-        return this.idade >= 18;
+        return this.obterIdade() >= 18;
     }
 }

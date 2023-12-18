@@ -1,6 +1,6 @@
 package com.casapopular.controller.familia;
 
-import com.casapopular.domain.familia.Familia;
+import com.casapopular.dominio.familia.Familia;
 import com.casapopular.service.FamiliaDTO;
 import com.casapopular.service.familia.AdicionaFamilia;
 import com.casapopular.service.familia.ConsultaFamilia;
