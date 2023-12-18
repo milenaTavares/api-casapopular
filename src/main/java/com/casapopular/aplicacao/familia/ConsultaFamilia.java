@@ -1,10 +1,10 @@
-package com.casapopular.service.familia;
+package com.casapopular.aplicacao.familia;
 
 import com.casapopular.dominio.familia.Familia;
 import com.casapopular.dominio.familia.pessoa.Pessoa;
-import com.casapopular.repository.FamiliaRepository;
-import com.casapopular.service.FamiliaDTO;
-import com.casapopular.service.PessoaDTO;
+import com.casapopular.adaptador.repositorio.FamiliaRepository;
+import com.casapopular.aplicacao.FamiliaDTO;
+import com.casapopular.aplicacao.PessoaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

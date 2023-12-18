@@ -1,6 +1,6 @@
-package com.casapopular.service.familia;
+package com.casapopular.aplicacao.familia;
 
-import com.casapopular.repository.FamiliaRepository;
+import com.casapopular.adaptador.repositorio.FamiliaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

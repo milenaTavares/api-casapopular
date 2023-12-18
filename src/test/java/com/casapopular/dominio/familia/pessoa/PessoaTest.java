@@ -1,6 +1,5 @@
-package com.casapopular.dominio.pessoa;
+package com.casapopular.dominio.familia.pessoa;
 
-import com.casapopular.dominio.familia.pessoa.Pessoa;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

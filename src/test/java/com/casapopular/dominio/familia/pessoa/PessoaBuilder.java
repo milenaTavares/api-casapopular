@@ -1,6 +1,4 @@
-package com.casapopular.dominio.pessoa;
-
-import com.casapopular.dominio.familia.pessoa.Pessoa;
+package com.casapopular.dominio.familia.pessoa;
 
 import java.time.LocalDate;
 

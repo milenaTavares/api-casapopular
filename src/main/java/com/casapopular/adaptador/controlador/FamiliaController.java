@@ -1,10 +1,10 @@
-package com.casapopular.controller.familia;
+package com.casapopular.adaptador.controlador;
 
 import com.casapopular.dominio.familia.Familia;
-import com.casapopular.service.FamiliaDTO;
-import com.casapopular.service.familia.AdicionaFamilia;
-import com.casapopular.service.familia.ConsultaFamilia;
-import com.casapopular.service.familia.ExcluiFamilia;
+import com.casapopular.aplicacao.FamiliaDTO;
+import com.casapopular.aplicacao.familia.AdicionaFamilia;
+import com.casapopular.aplicacao.familia.ConsultaFamilia;
+import com.casapopular.aplicacao.familia.ExcluiFamilia;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;

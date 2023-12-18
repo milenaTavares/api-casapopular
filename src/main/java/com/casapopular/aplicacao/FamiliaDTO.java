@@ -1,4 +1,4 @@
-package com.casapopular.service;
+package com.casapopular.aplicacao;
 
 import java.util.List;
 

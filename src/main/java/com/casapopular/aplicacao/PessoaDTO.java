@@ -1,4 +1,4 @@
-package com.casapopular.service;
+package com.casapopular.aplicacao;
 
 public class PessoaDTO {
 

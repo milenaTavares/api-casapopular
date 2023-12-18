@@ -1,4 +1,4 @@
-package com.casapopular.repository;
+package com.casapopular.adaptador.repositorio;
 
 import com.casapopular.dominio.familia.Familia;
 import org.springframework.data.jpa.repository.JpaRepository;
