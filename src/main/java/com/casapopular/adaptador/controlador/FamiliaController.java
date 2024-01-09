@@ -1,11 +1,11 @@
 package com.casapopular.adaptador.controlador;
 
-import com.casapopular.dominio.familia.Familia;
 import com.casapopular.aplicacao.FamiliaDTO;
 import com.casapopular.aplicacao.familia.AdicionaFamilia;
 import com.casapopular.aplicacao.familia.ConsultaFamilia;
 import com.casapopular.aplicacao.familia.ExcluiFamilia;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -39,27 +37,24 @@ public class FamiliaController {
     @GetMapping(value = "/{id}")
     public ResponseEntity<FamiliaDTO> buscarPorId(@PathVariable Integer id) {
         FamiliaDTO dto = consultaFamilia.buscarPorId(id);
-        return ResponseEntity.ok().body(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
     @GetMapping
-    @RequestMapping(value = "buscartodas")
     public ResponseEntity<List<FamiliaDTO>> buscarTodas() {
         List<FamiliaDTO> familias = consultaFamilia.buscarTodas();
-        return ResponseEntity.ok().body(familias);
+        return ResponseEntity.status(HttpStatus.OK).body(familias);
     }
 
-
     @PostMapping
-    public ResponseEntity<Familia> create(@RequestBody Familia familia) {
+    public ResponseEntity<String> create(@RequestBody FamiliaEntrada familia) {
         Integer id = adicionaFamilia.adicionar(familia);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(id).toUri();
-        return ResponseEntity.created(uri).build();
+        return ResponseEntity.status(HttpStatus.CREATED).body(String.format("Familia adicinada com sucesso!\n Id: %d", id));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Integer id) {
+    public ResponseEntity<String> delete(@PathVariable Integer id) {
         excluiFamilia.excluir(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Família excluída com sucesso!");
     }
 }
