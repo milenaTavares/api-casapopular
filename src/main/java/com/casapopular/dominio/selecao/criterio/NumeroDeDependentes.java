@@ -6,7 +6,7 @@ public class NumeroDeDependentes implements CriterioDeSelecao {
 
     @Override
     public Integer obterPontuacao(Familia familia) {
-        int pontos = 0;
+        int pontos;
         Integer numeroDeDependentes = familia.obterQuantidadeDeMembrosMaioresDeIdade();
         if (numeroDeDependentes >= 3)
             pontos = 3;

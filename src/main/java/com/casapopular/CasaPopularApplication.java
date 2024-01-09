@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EnableJpaRepositories(basePackages = "com.casapopular.repository")
+@EnableJpaRepositories(basePackages = "com.casapopular.adaptador.persistencia")
 public class CasaPopularApplication {
 
 	public static void main(String[] args) {

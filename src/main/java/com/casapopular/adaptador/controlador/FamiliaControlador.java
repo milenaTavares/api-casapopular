@@ -19,16 +19,16 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "familia")
-public class FamiliaController {
+public class FamiliaControlador {
 
     private final ConsultaFamilia consultaFamilia;
     private final AdicionaFamilia adicionaFamilia;
     private final ExcluiFamilia excluiFamilia;
 
     @Autowired
-    public FamiliaController(ConsultaFamilia consultaFamilia,
-                             AdicionaFamilia adicionaFamilia,
-                             ExcluiFamilia excluiFamilia) {
+    public FamiliaControlador(ConsultaFamilia consultaFamilia,
+                              AdicionaFamilia adicionaFamilia,
+                              ExcluiFamilia excluiFamilia) {
         this.consultaFamilia = consultaFamilia;
         this.adicionaFamilia = adicionaFamilia;
         this.excluiFamilia = excluiFamilia;
