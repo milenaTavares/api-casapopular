@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -31,7 +32,9 @@ public class SelecaoFabrica {
     }
 
     private void validarFamilias(List<Familia> familias) {
-        throw new RuntimeException("Não existem famílias cadastradas.");
+        if (Objects.isNull(familias) || familias.size() == 0) {
+            throw new RuntimeException("Não existem famílias cadastradas.");
+        }
     }
 
     private List<FamiliaPontuada> obterFamiliasPontuadas(List<Familia> familiasCadastradas) {
