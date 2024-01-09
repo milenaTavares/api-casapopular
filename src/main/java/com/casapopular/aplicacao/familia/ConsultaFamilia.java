@@ -2,7 +2,7 @@ package com.casapopular.aplicacao.familia;
 
 import com.casapopular.dominio.familia.Familia;
 import com.casapopular.dominio.familia.pessoa.Pessoa;
-import com.casapopular.adaptador.repositorio.FamiliaRepository;
+import com.casapopular.adaptador.persistencia.FamiliaRepositorio;
 import com.casapopular.aplicacao.FamiliaDTO;
 import com.casapopular.aplicacao.PessoaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,20 +14,20 @@ import java.util.stream.Collectors;
 @Service
 public class ConsultaFamilia {
 
-    private final FamiliaRepository familiaRepository;
+    private final FamiliaRepositorio familiaRepositorio;
 
     @Autowired
-    public ConsultaFamilia(FamiliaRepository familiaRepository) {
-        this.familiaRepository = familiaRepository;
+    public ConsultaFamilia(FamiliaRepositorio familiaRepositorio) {
+        this.familiaRepositorio = familiaRepositorio;
     }
 
     public List<FamiliaDTO> buscarTodas() {
-        List<Familia> familias = familiaRepository.findAll();
+        List<Familia> familias = familiaRepositorio.findAll();
         return familias.stream().map(this::montarFamiliaDTO).collect(Collectors.toList());
     }
 
     public FamiliaDTO buscarPorId(Integer id) {
-        Familia familia = familiaRepository.findById(id).get();
+        Familia familia = familiaRepositorio.findById(id).get();
         return montarFamiliaDTO(familia);
     }
 

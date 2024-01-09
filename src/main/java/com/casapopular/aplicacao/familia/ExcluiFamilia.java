@@ -1,20 +1,20 @@
 package com.casapopular.aplicacao.familia;
 
-import com.casapopular.adaptador.repositorio.FamiliaRepository;
+import com.casapopular.adaptador.persistencia.FamiliaRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ExcluiFamilia {
 
-    private final FamiliaRepository familiaRepository;
+    private final FamiliaRepositorio familiaRepositorio;
 
     @Autowired
-    public ExcluiFamilia(FamiliaRepository familiaRepository) {
-        this.familiaRepository = familiaRepository;
+    public ExcluiFamilia(FamiliaRepositorio familiaRepositorio) {
+        this.familiaRepositorio = familiaRepositorio;
     }
 
     public void excluir(Integer familiaId) {
-        familiaRepository.deleteById(familiaId);
+        familiaRepositorio.deleteById(familiaId);
     }
 }

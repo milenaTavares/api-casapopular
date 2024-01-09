@@ -1,8 +1,8 @@
 package com.casapopular.aplicacao.familia;
 
 import com.casapopular.dominio.familia.pessoa.Pessoa;
-import com.casapopular.adaptador.repositorio.FamiliaRepository;
-import com.casapopular.adaptador.repositorio.PessoaRepository;
+import com.casapopular.adaptador.persistencia.FamiliaRepositorio;
+import com.casapopular.adaptador.persistencia.PessoaRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,13 +11,13 @@ import java.util.List;
 @Service
 public class AdicionaMembros {
 
-    private final FamiliaRepository familiaRepository;
-    private final PessoaRepository pessoaRepository;
+    private final FamiliaRepositorio familiaRepositorio;
+    private final PessoaRepositorio pessoaRepositorio;
 
     @Autowired
-    public AdicionaMembros(FamiliaRepository familiaRepository, PessoaRepository pessoaRepository) {
-        this.familiaRepository = familiaRepository;
-        this.pessoaRepository = pessoaRepository;
+    public AdicionaMembros(FamiliaRepositorio familiaRepositorio, PessoaRepositorio pessoaRepositorio) {
+        this.familiaRepositorio = familiaRepositorio;
+        this.pessoaRepositorio = pessoaRepositorio;
     }
 
     //REFAZER ESTE MÉTODO
