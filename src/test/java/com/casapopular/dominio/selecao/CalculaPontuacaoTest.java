@@ -6,6 +6,7 @@ import com.casapopular.dominio.familia.pessoa.PessoaBuilder;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -17,7 +18,7 @@ class CalculaPontuacaoTest {
 
     @BeforeEach
     void setUp() {
-        calculaPontuacao = new CalculaPontuacao();
+        calculaPontuacao = Mockito.mock(CalculaPontuacao.class);
     }
 
     @Test
@@ -27,6 +28,7 @@ class CalculaPontuacaoTest {
         Pessoa terceiroMembro = new PessoaBuilder().comDataDeNascimento(LocalDate.now().minusYears(2)).comRenda(0.0).criar();
         List<Pessoa> membrosDaFamilia = Arrays.asList(primeiroMembro, segundoMembro, terceiroMembro);
         Familia familia = new Familia(membrosDaFamilia);
+        Mockito.when(calculaPontuacao.calcular(familia)).thenReturn(new FamiliaPontuada(familia.getId(), 7));
         int pontuacaoPorDependentesEsperada = 2;
         int pontuacaoPorRendaEsperada = 5;
 

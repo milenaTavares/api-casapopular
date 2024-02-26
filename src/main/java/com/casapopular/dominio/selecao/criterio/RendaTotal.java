@@ -1,7 +1,9 @@
 package com.casapopular.dominio.selecao.criterio;
 
 import com.casapopular.dominio.familia.Familia;
+import org.springframework.stereotype.Service;
 
+@Service
 public class RendaTotal implements CriterioDeSelecao {
 
     @Override

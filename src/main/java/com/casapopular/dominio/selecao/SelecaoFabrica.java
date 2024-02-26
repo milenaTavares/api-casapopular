@@ -17,9 +17,9 @@ public class SelecaoFabrica {
     private final CalculaPontuacao calculaPontuacao;
 
     @Autowired
-    public SelecaoFabrica(FamiliaRepositorio familiaRepositorio) {
+    public SelecaoFabrica(FamiliaRepositorio familiaRepositorio, CalculaPontuacao calculaPontuacao) {
         this.familiaRepositorio = familiaRepositorio;
-        this.calculaPontuacao = new CalculaPontuacao();
+        this.calculaPontuacao = calculaPontuacao;
     }
 
     public Selecao fabricar(Integer numeroDeFamiliasSelecionadas) {

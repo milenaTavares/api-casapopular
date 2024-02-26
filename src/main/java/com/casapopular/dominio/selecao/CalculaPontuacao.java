@@ -2,21 +2,17 @@ package com.casapopular.dominio.selecao;
 
 import com.casapopular.dominio.familia.Familia;
 import com.casapopular.dominio.selecao.criterio.CriterioDeSelecao;
-import com.casapopular.dominio.selecao.criterio.NumeroDeDependentes;
-import com.casapopular.dominio.selecao.criterio.RendaTotal;
+import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.List;
 
+@Service
 public class CalculaPontuacao {
 
     private final List<CriterioDeSelecao> criteriosDeSelecao;
 
-    // Injetar lista de critérios
-    public CalculaPontuacao() {
-        CriterioDeSelecao numeroDeDependentes = new NumeroDeDependentes();
-        CriterioDeSelecao rendaTotal = new RendaTotal();
-        this.criteriosDeSelecao = Arrays.asList(numeroDeDependentes, rendaTotal);
+    public CalculaPontuacao(List<CriterioDeSelecao> criteriosDeSelecao) {
+        this.criteriosDeSelecao = criteriosDeSelecao;
     }
 
     public FamiliaPontuada calcular(Familia familia) {
