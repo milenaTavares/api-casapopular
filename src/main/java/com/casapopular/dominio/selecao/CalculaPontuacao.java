@@ -12,6 +12,7 @@ public class CalculaPontuacao {
 
     private final List<CriterioDeSelecao> criteriosDeSelecao;
 
+    // Injetar lista de critérios
     public CalculaPontuacao() {
         CriterioDeSelecao numeroDeDependentes = new NumeroDeDependentes();
         CriterioDeSelecao rendaTotal = new RendaTotal();
