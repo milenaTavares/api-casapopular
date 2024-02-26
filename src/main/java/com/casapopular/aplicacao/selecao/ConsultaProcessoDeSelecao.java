@@ -5,7 +5,7 @@ import com.casapopular.dominio.selecao.Selecao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.stream.Collectors;
+import java.util.List;
 
 @Service
 public class ConsultaProcessoDeSelecao {
@@ -17,23 +17,16 @@ public class ConsultaProcessoDeSelecao {
         this.selecaoRepositorio = selecaoRepositorio;
     }
 
-    public SelecaoDTO buscarPorId(Integer id) {
+    public SelecaoSaida buscarPorId(Integer id) {
         Selecao selecao = selecaoRepositorio.findById(id).get();
-        return montarDTO(selecao);
+        return montarSaida(selecao);
     }
 
-    private SelecaoDTO montarDTO(Selecao selecao) {
-        SelecaoDTO selecaoDTO = new SelecaoDTO();
-        selecaoDTO.selecaoId = selecao.getId();
-        selecaoDTO.dataDeCriacao = selecao.getDataDeCriacao();
-        selecaoDTO.familiasSelecionadas = selecao.getFamiliasSelecionadas()
+    private SelecaoSaida montarSaida(Selecao selecao) {
+        List<FamiliaSelecionadaSaida> familiasSelecionadasSaida = selecao.getFamiliasSelecionadas()
                 .stream()
-                .map(familiaSelecionada -> {
-                    FamiliaSelecionadaDTO familiaSelecionadaDTO = new FamiliaSelecionadaDTO();
-                    familiaSelecionadaDTO.familiaId = familiaSelecionada.getFamilia_id();
-                    familiaSelecionadaDTO.pontuacao = familiaSelecionada.getPontuacao();
-                    return familiaSelecionadaDTO;
-                }).collect(Collectors.toList());
-        return selecaoDTO;
+                .map(familiaSelecionada -> new FamiliaSelecionadaSaida(familiaSelecionada.getFamilia_id(), familiaSelecionada.getPontuacao()))
+                .toList();
+        return new SelecaoSaida(selecao.getId(), selecao.getDataDeCriacao(), familiasSelecionadasSaida);
     }
 }

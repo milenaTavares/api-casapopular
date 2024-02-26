@@ -2,7 +2,7 @@ package com.casapopular.adaptador.controlador.selecao;
 
 import com.casapopular.aplicacao.selecao.AbrirProcessoDeSelecao;
 import com.casapopular.aplicacao.selecao.ConsultaProcessoDeSelecao;
-import com.casapopular.aplicacao.selecao.SelecaoDTO;
+import com.casapopular.aplicacao.selecao.SelecaoSaida;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,14 +24,14 @@ public class SelecaoRest {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<SelecaoDTO> buscarPorId(@PathVariable Integer id) {
-        SelecaoDTO dto = consultaProcessoDeSelecao.buscarPorId(id);
+    public ResponseEntity<SelecaoSaida> buscarPorId(@PathVariable Integer id) {
+        SelecaoSaida dto = consultaProcessoDeSelecao.buscarPorId(id);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
     @PostMapping
-    public ResponseEntity<SelecaoDTO> create(ProcessoSelecaoEntrada processoSelecaoEntrada) {
-        SelecaoDTO retorno = abrirProcessoDeSelecao.executar(processoSelecaoEntrada.numeroDeFamiliasSelecionadas());
+    public ResponseEntity<SelecaoSaida> create(ProcessoSelecaoEntrada processoSelecaoEntrada) {
+        SelecaoSaida retorno = abrirProcessoDeSelecao.executar(processoSelecaoEntrada.numeroDeFamiliasSelecionadas());
         return ResponseEntity.status(HttpStatus.CREATED).body(retorno);
     }
 }
